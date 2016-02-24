@@ -1,21 +1,17 @@
-package apicall;
+package ApiRetrofit;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import modle.User;
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import utility.Constants;
 
 /**
  * Created by techjini on 21/2/16.
  */
 public class APIBuilder {
     // Trailing slash is needed
-//    public static final String BASE_URL = "http://api.myservice.com/";
-    public static final String BASE_URL = "https://api.pipelinedeals.com/api/v3/people/";
     private static Retrofit retrofit;
 
     // TODO: 22/2/16 Rupak :: Can i make it static or not
@@ -34,7 +30,7 @@ public class APIBuilder {
             .build();*/
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         return retrofit;
